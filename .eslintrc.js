@@ -19,11 +19,18 @@ module.exports = {
   },
   plugins: ['react', 'prettier', 'eslint-plugin-prettier', 'react-native'],
   rules: {
-    indent: ['error', 2, { SwitchCase: 1 }],
+    indent: [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+      },
+    ],
     quotes: ['error', 'single'],
     'jsx-quotes': ['error', 'prefer-single'],
     semi: ['error', 'always'],
     'linebreak-style': ['error', 'unix'],
+    'react/forbid-prop-types': 0,
     'react/style-prop-object': 0,
     'max-depth': [
       'warn',
@@ -32,6 +39,7 @@ module.exports = {
       },
     ],
     'max-len': [1, 120],
+    'react/prefer-stateless-function': 0,
     'no-unused-vars': [
       'error',
       {
@@ -68,7 +76,12 @@ module.exports = {
         allow: ['_id', '_isMounted'],
       },
     ],
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.js', '.jsx'],
+      },
+    ],
     'prettier/prettier': [
       'error',
       {
@@ -78,6 +91,20 @@ module.exports = {
         semi: true,
         arrowParens: 'always',
         bracketSpacing: true,
+      },
+    ],
+    'object-curly-newline': [
+      'error',
+      {
+        ObjectExpression: 'always',
+        ObjectPattern: {
+          multiline: true,
+        },
+        ImportDeclaration: 'never',
+        ExportDeclaration: {
+          multiline: true,
+          minProperties: 3,
+        },
       },
     ],
     'no-undef': ['error'],
